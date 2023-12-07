@@ -1,11 +1,192 @@
+<!-- templates/index.html -->
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <title>YouTube Sentiment Analysis</title>
 </head>
+
 <body>
-    <h1>hello world</h1>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="{{ url_for('static', filename='images/YoutubeLogo.png') }}" width="30" height="30"
+                    class="d-inline-block align-top" alt="">
+                YouTube Sentiment Analysis
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">About <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Contact us <span class="sr-only">(current)</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <h1 class="text-center mt-5 mb-4 dynamic-heading" style="color: #0A3B55;"></h1>
+
+        <form class="custom-form" action="{{ url_for('index') }}" method="post">
+            <div class="mb-3">
+                <label for="youtube_link" class="form-label">Enter the YouTube link below.</label>
+                <input type="text" class="form-control" id="youtube_link" name="youtube_link"
+                    placeholder="Enter YouTube Link" required style="background-color: whitesmoke;">
+            </div>
+            <button type="submit" class="btn" style="color: white; background-color: #0A3B55;">Analyze</button>
+        </form>
+
+        {% if channel_info %}
+        <div class="channel-info">
+            <img src="{{ channel_info.channel_logo_url }}" alt="Channel Logo" class="channel-logo">
+            <div class="channel-details">
+                <h1 id='title'>{{ channel_info.channel_title }}</h1>
+            </div>
+        </div>
+
+        <div class="channel-stats mt-4">
+            <h3>Channel Statistics</h3>
+            <table class="table table-bordered table-striped table-hover ">
+                <tbody>
+                    <tr>
+                        <th scope="row">Total Videos</th>
+                        <td>{{ channel_info.video_count }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Channel Created</th>
+                        <td>{{ channel_info.channel_created_date }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Subscribers</th>
+                        <td>{{ channel_info.subscriber_count }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        {% endif %}
+
+        {% if stats %}
+        <div class="video-stats mt-4">
+            <h3>Video Information</h3>
+            <table class="table table-bordered table-striped table-hover ">
+                <tbody>
+                    <tr>
+                        <th scope="row">Total Views</th>
+                        <td>{{ stats.viewCount }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Likes</th>
+                        <td>{{ stats.likeCount }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Comments</th>
+                        <td>{{ stats.commentCount }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Video Link</th>
+                        <td><a href="{{youtube_link}}" target="_blank">Watch Now</a></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="embed-responsive embed-responsive-16by9 mt-4">
+                <iframe class="embed-responsive-item" width="560" height="315"
+                    src="https://www.youtube.com/embed/{{ video_id }}" title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+        {% endif %}
+
+        {% if results %}
+        <div class="sentiment-stats mt-4">
+            <h3>Sentiment Analysis</h3>
+            <table class="table table-bordered table-striped table-hover ">
+                <tbody>
+                    <tr>
+                        <th scope="row">Positive Comments</th>
+                        <td>{{ results.num_positive }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Negative Comments</th>
+                        <td>{{ results.num_negative }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Neutral Comments</th>
+                        <td>{{ results.num_neutral }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        {% endif %}
+
+        {% if bar_chart_image or pie_chart_image %}
+        <div class="chart mt-4">
+            {% if bar_chart_image %}
+            <h3>Bar Chart</h3>
+            <img src="{{ bar_chart_image }}" alt="Bar Chart" class="img-fluid">
+            {% endif %}
+            {% if pie_chart_image %}
+            <h3>Pie Chart</h3>
+            <img src="{{ pie_chart_image }}" alt="Pie Chart" class="img-fluid">
+            {% endif %}
+        </div>
+        {% endif %}
+
+        {% if channel_info %}
+        <div class="channel-description mt-4 ">
+            <h3>Channel Description</h3>
+            <p>{{ channel_info.channel_description }}</p>
+        </div>
+        {% endif %}
+
+    </main>
+
+    <footer class="footer mt-auto py-3 ">
+        <div class="container">
+            <span style="color: rgb(209, 209, 209);">&copy; Copyright <strong><span>Youtube sentiment
+                        analysis</span></strong></span>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const heading = document.querySelector('.dynamic-heading');
+            const texts = ["YouTube Sentiment Analysis", "Your Next Favorite Video", "Discover Trends"];
+
+            let index = 0;
+
+            function changeText() {
+                heading.textContent = texts[index];
+                index = (index + 1) % texts.length;
+            }
+
+            // Initial text change
+            changeText();
+
+            // Change text every 10 seconds
+            setInterval(changeText, 10000);
+        });
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
+
 </html>

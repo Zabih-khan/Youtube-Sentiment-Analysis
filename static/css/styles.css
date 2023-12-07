@@ -1,0 +1,208 @@
+/* Reset default margin and padding for the entire page */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, #d5dee2, #d5dee2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh;
+    color: #333; 
+}
+
+/* Navigation Styles */
+.navbar-nav .nav-link {
+    color: #fff;
+    font-size: 1.2em;
+    margin-right: 15px;
+}
+
+.navbar {
+    padding: 10px 0;
+    background-color: #0A3B55;
+}
+
+/* Main Content Styles */
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    margin: 20px 0;
+    box-shadow: 0px 2px 8px rgba(250, 24, 24, 0.897);
+}
+
+/* CSS for Text Change Animation */
+@keyframes changeText {
+    0%, 100% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    10%, 90% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.dynamic-heading {
+    overflow: hidden;
+    white-space: nowrap;
+    animation: changeText 10s infinite;
+}
+
+
+
+.custom-form {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    border: 2px solid #007BFF;
+    background-color: #fff;
+    text-align: center;
+}
+
+.custom-form label {
+    display: block;
+    margin-bottom: 10px;
+    color: #333;
+    font-weight: bold;
+
+}
+
+.custom-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #007BFF;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.custom-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.custom-form button:hover {
+    background-color: #0056b3;
+}
+
+
+/* Heading Styles */
+h3 {
+    color: #007bff;
+}
+
+#title {
+    color: #00B3B6;
+}
+
+/* Channel Info Styles */
+.channel-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    border: 2px solid #00B3B6;
+    padding: 15px;
+}
+
+/* Channel Stats Styles */
+.channel-stats, .sentiment-stats, .video-stats, .chart, .channel-description {
+    border: 2px solid #00B3B6;
+    padding: 15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.channel-description p{
+    margin-bottom: 40px;
+    font-size: 1.2em;
+    color: #000000;
+
+}
+
+/* Channel Logo Styles */
+.channel-logo {
+    width: 150px;
+    height: 150px;
+    margin-right: 20px;
+}
+
+.channel-logo img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+/* Channel Details Styles */
+.channel-details h2 {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+/* Table Styles */
+.table {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.table th, .table td {
+    padding: 12px;
+    vertical-align: top;
+    border-top: 1px solid rgba(248, 75, 75, 0.2);
+}
+.table td{
+    font-size: 1.2em;
+    color: #000000;
+}
+
+.table thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.4);
+    font-size: 1.2em;
+    color: #000000;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.table-hover tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Chart Styles */
+.chart img {
+    border-radius: 8px;
+    box-shadow: 0px 2px 8px rgba(185, 134, 134, 0.897);
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+
+
+/* Footer Styles */
+footer {
+    background: #0C3A53;
+    padding: 20px;
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+footer:hover {
+    background-color: #1A4C6D;
+}
