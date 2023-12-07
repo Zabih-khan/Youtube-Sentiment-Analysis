@@ -16,7 +16,7 @@ This web application performs sentiment analysis on YouTube video comments. It u
 
 2. Obtain a YouTube Data API key from the [Google Cloud Console](https://console.cloud.google.com/).
 
-3. Replace the placeholder in `Senti.py` with your YouTube Data API key:
+3. Replace the placeholder in `YoutubeCommentScrapper.py` with your YouTube Data API key:
 
     ```python
     DEVELOPER_KEY = "YOUR_API_KEY"
