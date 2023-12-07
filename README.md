@@ -2,6 +2,9 @@
 
 This web application performs sentiment analysis on YouTube video comments. It utilizes Flask for the web framework, NLTK for sentiment analysis, and Plotly for data visualization. The YouTube Data API is used to retrieve video information and comments.
 
+![Alt Text](static/images/frontend.png)
+
+
 ## Setup ⚙️
 
 1. Install the required dependencies using the following command:
@@ -41,8 +44,8 @@ This web application performs sentiment analysis on YouTube video comments. It u
     ├── Senti.py
     ├── YoutubeCommentScrapper.py
     ├── static/
-    │   ├── styles.css
-    │   └── favicon.ico
+    │   ├── css
+    │   └── images
     ├── templates/
     │   ├── index.html
     ├── venv/
