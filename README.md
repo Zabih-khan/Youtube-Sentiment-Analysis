@@ -34,6 +34,25 @@ This web application performs sentiment analysis on YouTube video comments. It u
 - **static/:** Directory for static files such as CSS, JavaScript, and images.
 - **templates/:** Directory for HTML templates used by Flask.
 
+    ```bash
+    YouTubeSentimentAnalysis/
+    │
+    ├── app.py
+    ├── Senti.py
+    ├── YoutubeCommentScrapper.py
+    ├── static/
+    │   ├── styles.css
+    │   └── favicon.ico
+    ├── templates/
+    │   ├── index.html
+    ├── venv/
+    ├── requirements.txt
+    ├── .gitignore
+    ├── LICENSE
+    └── README.md
+
+    ```
+
 ## Usage 🚀
 
 1. Enter a valid YouTube video link in the provided form.
