@@ -54,10 +54,11 @@
         </form>
 
         {% if channel_info %}
+        <h3 id='channel-name'>Channel Name</h3>
         <div class="channel-info">
             <img src="{{ channel_info.channel_logo_url }}" alt="Channel Logo" class="channel-logo">
             <div class="channel-details">
-                <h1 id='title'>{{ channel_info.channel_title }}</h1>
+                <h1 id='title'>{{ channel_info.channel_title }}</h1>   
             </div>
         </div>
 

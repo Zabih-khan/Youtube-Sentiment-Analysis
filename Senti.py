@@ -58,9 +58,17 @@ def generate_bar_chart(results):
         x='Sentiment',
         y='Number of Comments',
         color='Sentiment',
-        color_discrete_sequence=['#4CAF50', '#FF5733', '#3498DB'],  # Updated color scheme
-        title='Sentiment Analysis Results (Bar Plot)',
+        color_discrete_sequence=['#4CAF50', '#FF5733', '#00B3B6'],  # Updated color scheme
         labels={'Number of Comments': 'Number of Comments'},
+    )
+
+    # Improve the bar chart design
+    fig.update_layout(
+        title='Sentiment Analysis Results (Bar Plot)',
+        margin=dict(t=60, r=20, b=60, l=40),
+        font=dict(family='Arial', size=15, color='#505050'),
+        plot_bgcolor='#f8f9fa',
+        paper_bgcolor='#f8f9fa',
     )
 
     return save_chart_image(fig)
@@ -77,14 +85,16 @@ def generate_pie_chart(results):
         labels=labels,
         values=values,
         textinfo='label+percent',
-        marker=dict(colors=['#FFD700', '#90EE90', '#FF6347']),  # Updated color scheme
-        hole=0.3,  # Add a hole in the middle for better aesthetics
+        marker=dict(colors=['#FFD700', '#90EE90', '#FF6347']),  
+        hole=0.5, 
     )])
 
     fig.update_layout(
         title='Sentiment Analysis Results (Pie Plot)',
-        legend=dict(orientation='h', yanchor='bottom', y=1.02, xanchor='right', x=1),
-        height=400  # Adjust the height as needed
+        margin=dict(t=60, r=20, b=60, l=40),
+        font=dict(family='Arial', size=15, color='#505050'),
+        plot_bgcolor='#f8f9fa',
+        paper_bgcolor='#f8f9fa',
     )
 
     return save_chart_image(fig)
