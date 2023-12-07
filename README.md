@@ -4,6 +4,7 @@ This web application performs sentiment analysis on YouTube video comments. It u
 
 ![Alt Text](static/images/frontend.png)
 
+![Alt Text](static/images/f.png)
 
 ## Setup ⚙️
 
