@@ -1,9 +1,7 @@
 import csv
 from googleapiclient.discovery import build
 from collections import Counter
-from Senti import extract_video_id
 from googleapiclient.errors import HttpError
-
 import warnings
 warnings.filterwarnings('ignore')
 
@@ -15,14 +13,12 @@ YOUTUBE_API_VERSION = 'v3'
 # Create a client object to interact with the YouTube API
 youtube = build(YOUTUBE_API_SERVICE_NAME, YOUTUBE_API_VERSION, developerKey=DEVELOPER_KEY)
 
-#video_id=extract_video_id(youtube_link)
 
 def get_channel_id(video_id):
     response = youtube.videos().list(part='snippet', id=video_id).execute()
     channel_id = response['items'][0]['snippet']['channelId']
     return channel_id
 
-#channel_id=get_channel_id(video_id)
     
 
 def save_video_comments_to_csv(video_id):

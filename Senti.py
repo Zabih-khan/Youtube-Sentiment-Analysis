@@ -62,7 +62,7 @@ def generate_bar_chart(results):
         labels={'Number of Comments': 'Number of Comments'},
     )
 
-    # Improve the bar chart design
+    
     fig.update_layout(
         title='Sentiment Analysis Results (Bar Plot)',
         margin=dict(t=60, r=20, b=60, l=40),

@@ -33,7 +33,7 @@ def index():
 
         if video_id:
             # Define directory_path here
-            directory_path = os.getcwd()  # You may want to specify a different path
+            directory_path = os.getcwd()  
 
             csv_file = save_video_comments_to_csv(video_id)
             delete_non_matching_csv_files(directory_path, video_id)
@@ -51,8 +51,8 @@ def index():
                                    channel_info=channel_info,
                                    stats=stats,
                                    results=results,
-                                   bar_chart_image=bar_chart_image,  # Correct variable name
-                                   pie_chart_image=pie_chart_image)  # Correct variable name
+                                   bar_chart_image=bar_chart_image,  
+                                   pie_chart_image=pie_chart_image)  
         else:
             return render_template('index.html', error="Invalid YouTube link")
 
