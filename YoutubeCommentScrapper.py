@@ -6,7 +6,7 @@ import warnings
 warnings.filterwarnings('ignore')
 
 # Replace with your own API key
-DEVELOPER_KEY = "AIzaSyCMlYp_abnZ32SI0CGke1OYZm6FdOx5qt0"
+DEVELOPER_KEY = "YOUR_API_KEY"
 
 YOUTUBE_API_SERVICE_NAME = 'youtube'
 YOUTUBE_API_VERSION = 'v3'
