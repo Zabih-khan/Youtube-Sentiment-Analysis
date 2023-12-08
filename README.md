@@ -69,6 +69,15 @@ This web application performs sentiment analysis on YouTube video comments. It u
 - The web application uses the Flask web framework, NLTK for sentiment analysis, and Plotly for data visualization.
 - Special thanks to the developers of the Google API Python client library.
 
+## Contribution Guidelines 🤝
+We welcome contributions from the community to enhance and improve the YouTube Sentiment Analysis Web App. Whether you are fixing a bug, adding a new feature, or improving design, your contributions are highly appreciated.
+
+## Development Guidelines 🛠️
+Follow the coding style and structure of the existing codebase.
+Write clear and concise comments where necessary.
+Test your changes thoroughly before submitting a pull request.
+Keep dependencies up-to-date and document any new dependencies introduced.
+
 ## License 📄
 
 This project is licensed under the [MIT License](LICENSE).
