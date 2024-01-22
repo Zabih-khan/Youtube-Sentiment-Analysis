@@ -78,6 +78,3 @@ Write clear and concise comments where necessary.
 Test your changes thoroughly before submitting a pull request.
 Keep dependencies up-to-date and document any new dependencies introduced.
 
-## License 📄
-
-This project is licensed under the [MIT License](LICENSE).
